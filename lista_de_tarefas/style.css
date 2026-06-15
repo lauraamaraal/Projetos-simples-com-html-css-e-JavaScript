@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2c2c2c;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Comic Neue', 'Segoe UI', 'Courier New', monospace;
+  padding: 20px;
+}
+
+.board {
+  background: #1a3a2f;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255, 240, 150, 0.08) 1.5%, transparent 2%);
+  background-size: 25px 25px;
+  width: 100%;
+  max-width: 550px;
+  padding: 25px;
+  border-radius: 35px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4), inset 0 1px 4px rgba(255, 255, 200, 0.2), 0 0 0 10px #b87a3a, 0 0 0 14px #dea;
+  border: 2px solid #e0a45e;
+}
+
+h1 {
+  font-family: 'Permanent Marker', 'Comic Neue', cursive;
+  font-size: 2.2rem;
+  color: #fff2c9;
+  text-shadow: 3px 3px 0 #a5561a;
+  text-align: center;
+  letter-spacing: 1px;
+  word-break: keep-all;
+}
+
+.sub {
+  text-align: center;
+  color: #ffea9e;
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  background: #00000044;
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 30px;
+}
+
+.input-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  background: #00000055;
+  padding: 8px 12px;
+  border-radius: 60px;
+}
+
+input {
+  flex: 1;
+  background: #fff8e7;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  border-radius: 40px;
+  outline: none;
+  box-shadow: inset 0 1px 4px #b87a3a, 0 2px 0 #bb8822;
+}
+
+input:focus {
+  background: #fffff0;
+  transform: scale(0.98);
+}
+
+button {
+  background: #ffbc6e;
+  border: none;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2rem;
+  padding: 0 24px;
+  border-radius: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #9b5a28;
+  transition: 0.05s linear;
+  color: #3a2a10;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #9b5a28;
+}
+
+ul {
+  list-style: none;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+li {
+  background: #2c2a1ee6;
+  margin-bottom: 12px;
+  padding: 10px 15px 10px 20px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-left: 10px solid #ffbc6e;
+  transition: 0.1s;
+}
+
+li:hover {
+  background: #3f3c2ae6;
+  transform: translateX(4px);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.check-custom {
+  width: 24px;
+  height: 24px;
+  background: #f5e5c4;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #ca963f;
+  color: #2c6e2c;
+}
+
+.task-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #faf0ce;
+  word-break: break-word;
+}
+
+.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.7;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #f5bc70;
+}
+
+.delete-task {
+  background: #b9563e;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #632818;
+  transition: 0.05s linear;
+}
+
+.delete-task:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.empty {
+  text-align: center;
+  justify-content: center;
+  background: #00000066;
+  color: #ffdfa5;
+  border-left: 10px solid #e7b874;
+  font-style: italic;
+}
+
+.tip {
+  margin-top: 20px;
+  font-size: 0.65rem;
+  text-align: center;
+  background: #00000055;
+  padding: 6px;
+  border-radius: 50px;
+  color: #f7e0a3;
+}
+
+ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: #2a543f;
+  border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #f0bc70;
+  border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .board {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  button {
+    padding: 0 16px;
+    font-size: 1rem;
+  }
+
+  .task-text {
+    font-size: 0.85rem;
+  }
+}

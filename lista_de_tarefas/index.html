@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="board">
+    <h1>📋 LISTA DE TAREFAS</h1>
+    <p class="sub">⭐ </p>
+
+    <div class="input-area">
+      <input type="text" id="taskInput" placeholder="Ex: estudar para a prova..." autocomplete="off">
+      <button id="addBtn">+ ADD</button>
+    </div>
+
+    <ul id="taskList">
+      <li class="empty">✏️ Nenhuma tarefa ainda...</li>
+    </ul>
+
+    <div class="tip">⬅️ clique no ✓ pra completar | aperte DELETE pra remover</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
