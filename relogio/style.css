@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Fredoka+One&display=swap');
+
+:root {
+  --bg1: #0a0020;
+  --bg2: #1a003a;
+  --cyan: #00ffff;
+  --pink: #ff00cc;
+  --yellow: #ffee00;
+  --green: #00ff88;
+  --purple: #cc00ff;
+  --white: #ffffff;
+  --clock-bg: #0d0030;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #1a003a 0%, #0a0020 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', monospace;
+  overflow: hidden;
+}
+
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkle var(--d) ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+
+.scene {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+
+.titulo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 26px;
+  text-align: center;
+  background: linear-gradient(90deg, var(--cyan), var(--pink), var(--yellow), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow 3s linear infinite;
+  background-size: 300% 100%;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  letter-spacing: 2px;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+
+.clock-wrap {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--cyan), var(--pink), var(--yellow),
+      var(--green), var(--purple), var(--cyan));
+  animation: spin 4s linear infinite;
+  filter: blur(2px);
+}
+
+.ring-inner {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--bg2);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.clock {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 40% 35%, #1e0050 0%, #0a0025 60%, #050015 100%);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 15px rgba(0, 255, 255, 0.1),
+    0 0 30px rgba(204, 0, 255, 0.3);
+}
+
+
+.clock::after {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 20%;
+  width: 60%;
+  height: 30%;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: 17px;
+  color: var(--white);
+  text-align: center;
+  line-height: 1;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 6px 6px 2px 2px;
+}
+
+.hand.hour {
+  width: 7px;
+  height: 72px;
+  margin-left: -3.5px;
+  background: linear-gradient(to top, var(--cyan), #ffffff);
+  box-shadow: 0 0 12px var(--cyan), 0 0 24px var(--cyan);
+  border-radius: 6px;
+}
+
+.hand.minute {
+  width: 5px;
+  height: 100px;
+  margin-left: -2.5px;
+  background: linear-gradient(to top, var(--pink), #ffaaee);
+  box-shadow: 0 0 10px var(--pink), 0 0 20px var(--pink);
+  border-radius: 5px;
+}
+
+.hand.second {
+  width: 2px;
+  height: 112px;
+  margin-left: -1px;
+  background: var(--yellow);
+  box-shadow: 0 0 8px var(--yellow), 0 0 16px var(--yellow);
+  bottom: calc(50% - 20px);
+  height: 128px;
+  border-radius: 2px;
+}
+
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background: var(--purple);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--purple), 0 0 24px var(--purple);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-core {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #fff;
+}
+
+
+.digital-wrap {
+  background: #000;
+  border: 2px solid var(--green);
+  border-radius: 10px;
+  padding: 8px 24px;
+  box-shadow: 0 0 20px var(--green), inset 0 0 10px rgba(0, 255, 136, 0.1);
+}
+
+.time-digital {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 4px;
+  text-shadow: 0 0 8px var(--green), 0 0 16px var(--green);
+}
+
+.date-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: var(--yellow);
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--yellow);
+  text-transform: uppercase;
+}
