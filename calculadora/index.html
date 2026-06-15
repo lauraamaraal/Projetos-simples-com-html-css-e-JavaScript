@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Rosa</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="calculator">
+
+            <div class="display">
+                <span class="expression" id="expression"></span>
+                <span class="result" id="result">0</span>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-clear" onclick="clearAll()">C</button>
+                <button class="btn btn-op" onclick="deleteLast()">⌫</button>
+                <button class="btn btn-op" onclick="appendChar('%')">%</button>
+                <button class="btn btn-op btn-divide" onclick="appendChar('÷')">÷</button>
+
+                <button class="btn" onclick="appendChar('7')">7</button>
+                <button class="btn" onclick="appendChar('8')">8</button>
+                <button class="btn" onclick="appendChar('9')">9</button>
+                <button class="btn btn-op" onclick="appendChar('×')">×</button>
+
+                <button class="btn" onclick="appendChar('4')">4</button>
+                <button class="btn" onclick="appendChar('5')">5</button>
+                <button class="btn" onclick="appendChar('6')">6</button>
+                <button class="btn btn-op" onclick="appendChar('-')">−</button>
+
+                <button class="btn" onclick="appendChar('1')">1</button>
+                <button class="btn" onclick="appendChar('2')">2</button>
+                <button class="btn" onclick="appendChar('3')">3</button>
+                <button class="btn btn-op" onclick="appendChar('+')">+</button>
+
+                <button class="btn btn-zero" onclick="appendChar('0')">0</button>
+                <button class="btn" onclick="appendChar('.')">.</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
